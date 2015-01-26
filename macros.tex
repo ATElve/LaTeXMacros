@@ -1,0 +1,94 @@
+% !TEX root = ../main.tex
+
+% Math mode classifications
+
+% Vector:
+\newcommand{\vt}[1]{\ensuremath{\underline{#1}}}
+
+% Dot Vector:
+\newcommand{\dvt}[1]{\ensuremath{\dot{\vt{#1}}}}
+
+% Hat Vector:
+\newcommand{\hvt}[1]{\ensuremath{\hat{\vt{#1}}}}
+
+% Matrix:
+\newcommand{\mt}[1]{\ensuremath{\underline{\underline{\mathbf{#1}}}}}
+
+% Dot Matrix:
+\newcommand{\dmt}[1]{\ensuremath{\dot{\mt{#1}}}}
+
+% Hat Matrix:
+\newcommand{\hmt}[1]{\ensuremath{\hat{\mt{#1}}}}
+
+
+% Set:
+\newcommand{\set}[1]{\ensuremath{\mathbb{#1}}}
+
+% PartialDifferential:
+\newcommand{\pder}[3][1]{\ensuremath{\frac{\partial#2}{\partial#3}}}
+
+% Sign function
+\newcommand{\sgn}[1]{\ensuremath{\text{sgn}\brac{#1}}}
+
+
+
+%%%%%%%%%%%%%%%%
+% TYPESETTING  %
+%%%%%%%%%%%%%%%%
+
+% Brackets ()
+\newcommand{\brac}[1]{\ensuremath{\left( #1 \right)}} 
+
+% Square brackets []
+\newcommand{\sbrac}[1]{\ensuremath{\left[ #1 \right]}}
+
+% Bar brackets | | 
+\newcommand{\bbrac}[1]{\ensuremath{\left| #1 \right|}}
+
+
+% Text mode
+
+% Word shortcuts:
+\newcommand{\p}{pressure}
+
+\renewcommand{\bf}{\textbf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table environment     %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Left aligned math symbol
+\newcolumntype{L}{>{\begin{math}}l<{\end{math}}}%
+
+% Center aligned math symbol in table
+\newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
+
+% Right aligned math symbol in table
+\newcolumntype{R}{>{\begin{math}}r<{\end{math}}}%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Language redefinitions   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\seq}[1]{\begin{subequations}#1\end{subequations}}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Tikz macros              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\arc}[3][orange]{\draw[->] (#2) -- (#3); \node[draw,circle,fill= #1 , scale = 0.1] (boundry) at ($(#2)!0.5!(#3)$){};}
+
+
+\newcommand{\grid}[5][1]{%
+    \draw[help lines,step=.2,yellow] (#2,#4) grid (#3,#5);
+    \draw[help lines,line width=.6pt,step=1,red] (#2,#4) grid (#3,#5);
+    \foreach \x in {#2,...,#3}
+    \node[anchor=north] at (\x,#4-0.5) {\x};
+    \foreach \y in {#4,...,#5}
+    \node[anchor=east] at (#2-0.5,\y) {\y};
+}%
+
